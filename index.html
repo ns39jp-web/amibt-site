@@ -1,12 +1,137 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>A-MIBT | Asian Forum for Minimally Invasive Breast Therapies</title>
+  <style>
+    :root { --pink:#f28db2; --ink:#1b1b1b; }
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#fff}
+    header{position:sticky;top:0;backdrop-filter:saturate(180%) blur(8px);background:rgba(255,255,255,.8);border-bottom:1px solid #eee;z-index:10}
+    .wrap{max-width:1080px;margin:0 auto;padding:12px 18px}
+    nav a{margin-right:16px;text-decoration:none;color:#444;font-weight:600}
+    .btn{display:inline-block;padding:10px 16px;border-radius:10px;border:1px solid #ddd;text-decoration:none}
+    .btn.primary{background:var(--pink);color:#fff;border:none;font-weight:700}
+    .hero{background:url('main.jpg') center/cover no-repeat;min-height:54vh;display:flex;align-items:center}
+    .hero-card{background:rgba(255,255,255,.92);padding:24px;border-radius:16px;box-shadow:0 6px 24px rgba(0,0,0,.08);max-width:720px}
+    .hero h1{margin:8px 0 6px;font-size:28px}
+    .kicker{color:#888;font-size:13px;letter-spacing:.06em}
+    .grid{display:grid;gap:18px}
+    @media(min-width:900px){ .grid.cols-2{grid-template-columns:1fr 1fr} }
+    section{padding:42px 0;border-top:1px solid #f2f2f2}
+    h2{margin:.2em 0 .6em;font-size:24px}
+    .lang-switch button{margin-right:8px;border:1px solid #ddd;background:#fff;border-radius:8px;padding:6px 10px;cursor:pointer}
+    .lang-switch button.active{background:var(--pink);color:#fff;border-color:var(--pink)}
+    [data-i18n]{display:none}
+    [data-i18n].show{display:block}
+    footer{padding:36px 0;color:#666;font-size:14px}
+    .logo{height:64px;vertical-align:middle;margin-right:10px}
+  </style>
 </head>
 <body>
-  <h1>A-MIBT: Tri-lingual Sample Site</h1>
-  <p><a href="login.html">Login</a> · <a href="videos.html">Videos</a></p>
+  <header>
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;">
+      <div>
+        <img src="logo.png" alt="A-MIBT" class="logo">
+        <strong>A-MIBT</strong>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#events">Events</a>
+        <a href="login.html">Login</a>
+        <a href="videos.html" class="btn">Videos</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-card">
+        <div class="kicker">Asian forum for minimally invasive breast therapies</div>
+        <h1>小切開・低侵襲・非手術療法のアジア連携プラットフォーム</h1>
+        <p>内視鏡・ロボット・非外科的アブレーション（凍結など）を中心に、患者にやさしい治療を共有・発展させます。</p>
+        <div style="margin-top:12px">
+          <a href="#about" class="btn">Learn more</a>
+          <a href="login.html" class="btn primary">Member Login</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+        <h2 style="margin:0">About A-MIBT</h2>
+        <div class="lang-switch">
+          <button data-lang="ja" class="active">日本語</button>
+          <button data-lang="en">EN</button>
+          <button data-lang="zh">中文</button>
+        </div>
+      </div>
+
+      <!-- JA -->
+      <div data-i18n="ja" class="show">
+        <p>A-MIBTは、アジアの乳腺外科領域における<strong>小切開・低侵襲・非手術療法</strong>（内視鏡、ロボット、アブレーション等）の知識と技術を共有する学術フォーラムです。安全性・整容性・QOLの向上をめざし、教育・研究・国際連携を推進します。</p>
+        <ul>
+          <li>オンライン・オフラインの定期カンファレンス</li>
+          <li>教育動画や症例ディスカッション（会員向け）</li>
+          <li>多施設共同研究・データ登録・国際発表の推進</li>
+        </ul>
+      </div>
+      <!-- EN -->
+      <div data-i18n="en">
+        <p>A-MIBT is a collaborative forum in Asia focusing on <strong>small-incision, minimally invasive, and non-surgical ablation therapies</strong> (endoscopic, robotic, etc.). We promote education, research, and cross-border collaboration to improve safety, cosmesis, and patient quality of life.</p>
+        <ul>
+          <li>Regular online/offline conferences</li>
+          <li>Members-only training videos & case discussions</li>
+          <li>Multicenter research, registry, and international presentations</li>
+        </ul>
+      </div>
+      <!-- ZH -->
+      <div data-i18n="zh">
+        <p>A-MIBT 是一个面向亚洲的学术平台，专注于<strong>小切口、微创及非手术消融疗法</strong>（内镜、机器人等）。我们通过教育、研究与国际合作，提升治疗安全性、外观效果与患者生活质量。</p>
+        <ul>
+          <li>定期线上/线下会议</li>
+          <li>会员专属教学视频与病例讨论</li>
+          <li>多中心研究、数据登记与国际发表</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="events">
+    <div class="wrap grid cols-2">
+      <div>
+        <h2>Next Forum</h2>
+        <p><strong>Date:</strong> TBD（Zoom）</p>
+        <p><strong>Topics:</strong> Endoscopic NSM / Robotic / Ablation</p>
+        <a class="btn" href="#">Zoomリンク（後日掲載）</a>
+      </div>
+      <div>
+        <h2>Members Area</h2>
+        <p>教育動画は会員専用です。ログイン後に視聴できます。</p>
+        <a class="btn" href="login.html">ログイン</a>
+        <a class="btn" href="videos.html">動画一覧</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div>A-MIBT © 2025 · Contact: info@amibt.jp</div>
+    </div>
+  </footer>
+
+  <script>
+    // 簡易 多言語切替
+    const buttons = document.querySelectorAll('.lang-switch button');
+    const blocks  = document.querySelectorAll('[data-i18n]');
+    buttons.forEach(b=>b.onclick=()=>{
+      buttons.forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      const lang=b.dataset.lang;
+      blocks.forEach(el=>el.classList.toggle('show', el.dataset.i18n===lang));
+    });
+  </script>
 </body>
 </html>
