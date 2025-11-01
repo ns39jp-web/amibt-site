@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Login</title></head>
+<body>
+  <form id="f">
+    <input id="e" required placeholder="Email">
+    <input id="p" required placeholder="Password" type="password">
+    <button>Login</button>
+  </form>
+  <script>
+    f.onsubmit = e => {
+      e.preventDefault();
+      localStorage.setItem("loggedIn", "yes");
+      location = "videos.html";
+    };
+  </script>
+</body>
+</html>
