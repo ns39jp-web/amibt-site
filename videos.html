@@ -1,18 +1,83 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Videos</title>
-  <script>
-    if (localStorage.getItem("loggedIn") !== "yes") {
-      location = "login.html";
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A-MIBT | Educational Videos</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin:0; padding:0; background:#fafafa; color:#222; }
+    header { background:#f28db2; color:#fff; padding:16px 20px; text-align:center; font-weight:600; }
+    h2 { text-align:center; margin-top:24px; }
+    .buttons { text-align:center; margin:16px; }
+    button {
+      background:#fff; border:1px solid #f28db2; color:#f28db2; padding:8px 18px;
+      border-radius:20px; margin:4px; cursor:pointer; font-weight:600;
     }
-  </script>
+    button.active { background:#f28db2; color:#fff; }
+    iframe { width:90%; max-width:800px; height:450px; display:block; margin:20px auto; border-radius:12px; border:none; }
+    footer { text-align:center; font-size:13px; color:#777; margin:40px 0 20px; }
+    .lang { text-align:center; margin-top:12px; font-size:14px; color:#555; }
+  </style>
 </head>
 <body>
-  <h2>Members-only Videos</h2>
-  <iframe src="https://player.vimeo.com/video/000000000"
-          width="640" height="360" frameborder="0"
-          allowfullscreen></iframe>
+  <script>
+    // ログイン認証チェック
+    if (localStorage.getItem('amibt_auth') !== 'ok') location = 'login.html';
+  </script>
+
+  <header>
+    A-MIBT Educational Videos / 教育视频
+  </header>
+
+  <h2>Choose your region / 选择地区</h2>
+
+  <div class="buttons">
+    <button id="btnGlobal" class="active" onclick="show('global')">🌏 Global (YouTube)</button>
+    <button id="btnChina" onclick="show('china')">🇨🇳 Mainland China (Bilibili)</button>
+  </div>
+
+  <!-- グローバル版 (YouTube) -->
+  <div id="global">
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+      title="A-MIBT Global Education Video" allowfullscreen></iframe>
+
+    <iframe src="https://www.youtube.com/embed/XXXXXXXXXXX"
+      title="A-MIBT Lecture Example" allowfullscreen></iframe>
+
+    <p style="text-align:center;color:#777;">More videos will be added soon.</p>
+  </div>
+
+  <!-- 中国版 (Bilibili) -->
+  <div id="china" style="display:none;">
+    <iframe src="https://player.bilibili.com/player.html?bvid=BV1XX411c7mD"
+      title="A-MIBT 中国教育视频" scrolling="no" allowfullscreen></iframe>
+
+    <iframe src="https://player.bilibili.com/player.html?bvid=BV2YY411x7nZ"
+      title="A-MIBT 学术会议" scrolling="no" allowfullscreen></iframe>
+
+    <p style="text-align:center;color:#777;">更多视频将陆续上线。</p>
+  </div>
+
+  <div class="lang">
+    🌐 <a href="index.html">Home</a> | <a href="members.html">Members</a> | <a href="#" onclick="logout()">Logout</a>
+  </div>
+
+  <footer>
+    © 2025 Asian Forum for Minimally Invasive Breast Therapies (A-MIBT)
+  </footer>
+
+  <script>
+    function show(id) {
+      document.getElementById('global').style.display = id === 'global' ? 'block' : 'none';
+      document.getElementById('china').style.display = id === 'china' ? 'block' : 'none';
+      document.getElementById('btnGlobal').classList.toggle('active', id === 'global');
+      document.getElementById('btnChina').classList.toggle('active', id === 'china');
+    }
+    function logout() {
+      localStorage.removeItem('amibt_auth');
+      location = 'login.html';
+    }
+  </script>
 </body>
 </html>
+
