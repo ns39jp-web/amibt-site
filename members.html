@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>A-MIBT Members</title>
+  <style>
+    :root{--pink:#f28db2}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#fff}
+    .wrap{max-width:1080px;margin:0 auto;padding:18px}
+    header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee}
+    nav a{margin-right:14px;text-decoration:none;color:#444;font-weight:600}
+    .grid{display:grid;gap:16px}
+    @media(min-width:900px){.grid.cols-3{grid-template-columns:1fr 1fr 1fr}}
+    .card{border:1px solid #eee;border-radius:14px;padding:16px;box-shadow:0 6px 18px rgba(0,0,0,.04)}
+    .name{font-weight:800}
+    .role{color:#666;font-size:13px;margin:.2em 0 .6em}
+    .badge{display:inline-block;background:var(--pink);color:#fff;border-radius:999px;padding:2px 8px;font-size:12px;margin-left:6px}
+    .lang button{margin-right:8px;border:1px solid #ddd;background:#fff;border-radius:8px;padding:6px 10px;cursor:pointer}
+    .lang .active{background:var(--pink);color:#fff;border-color:var(--pink)}
+    [data-i18n]{display:none}
+    [data-i18n].show{display:block}
+    .notice{background:#fff7fa;border:1px solid #ffd3e4;color:#b02863;border-radius:10px;padding:10px;margin:12px 0}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;">
+      <strong>A-MIBT Members</strong>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="videos.html">Videos</a>
+        <a href="#" id="logout">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div id="gate" class="notice" style="display:none">
+      このページは会員専用です。<a href="login.html">ログイン</a>してください。
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+      <h2 style="margin:10px 0">Member Profiles</h2>
+      <div class="lang">
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="ja">日本語</button>
+        <button data-lang="zh">中文</button>
+      </div>
+    </div>
+
+    <!-- EN -->
+    <div data-i18n="en" class="show">
+      <h3>Founding Advisors</h3>
+      <div class="grid cols-3">
+        <div class="card">
+          <div class="name">Dr. Eisuke Fukuma <span class="badge">Advisor</span></div>
+          <div class="role">Kameda Medical Center, Japan</div>
+          <p>Pioneer of endoscopic and robotic-assisted breast surgery; promotes patient-centered minimally invasive care.</p>
+        </div>
+        <div class="card">
+          <div class="name">Dr. Takayuki Kinoshita <span class="badge">Advisor</span></div>
+          <div class="role">NHO Tokyo Medical Center, Japan</div>
+          <p>Leader in image-guided ablation therapies (e.g., RFA) and clinical adoption of minimally invasive treatments.</p>
+        </div>
+        <div class="card">
+          <div class="name">Dr. Hyeong Seok Park <span class="badge">Advisor</span></div>
+          <div class="role">Yonsei Cancer Hospital, Korea</div>
+          <p>Robotic breast surgery expert; advanced single-port techniques and surgeon training across Asia.</p>
+        </div>
+        <div class="card">
+          <div class="name">Dr. Shucheng Su <span class="badge">Advisor</span></div>
+          <div class="role">Sun Yat-sen Memorial Hospital, China</div>
+          <p>Expert in tumor immunology and minimally invasive breast surgery; promotes endoscopic/robotic adoption in China.</p>
+        </div>
+        <div class="card">
+          <div class="name">Dr. Peng-wei Lyu <span class="badge">Advisor</span></div>
+          <div class="role">FAH of Zhengzhou University, China</div>
+          <p>Robotic NSM, LD flap reconstruction, and incision-sparing approaches; key driver of robotic surgery in China.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:28px">Core Members</h3>
+      <div class="grid cols-3">
+        <div class="card">
+          <div class="name">Dr. Naomi Sakamoto <span class="badge">Core</span></div>
+          <div class="role">Kameda Medical Center, Japan</div>
+          <p>Endoscopic breast cancer surgery and interventional techniques; organizer of A-MIBT.</p>
+        </div>
+        <div class="card">
+          <div class="name">Dr. Zhao Jin <span class="badge">Core</span></div>
+          <div class="role">China-Japan Friendship Hospital, China</div>
+          <p>Breast intervention and oncoplastic surgery; introduced cryosurgery for breast cancer in China.</p>
+        </div>
+        <div class="card">
+          <div class="name">Dr. Hui Zhang <span class="badge">Core</span></div>
+          <div class="role">Fuzhou University Affiliated Provincial Hospital, China</div>
+          <p>Endoscopic NSM and reconstruction (implant, autologous, LVA) across a broad spectrum of procedures.</p>
+        </div>
+        <div class="card">
+          <div class="name">Dr. Qingmo Yang <span class="badge">Core</span></div>
+          <div class="role">The First Affiliated Hospital of Xiamen University, China</div>
+          <p>Extensive endoscopic experience; renowned for surgical speed with quality and safety.</p>
+        </div>
+        <div class="card">
+          <div class="name">Dr. Li Sheng-Lin <span class="badge">Core</span></div>
+          <div class="role">The Affiliated Hospital of Putian University, China</div>
+          <p>Expert in endoscopic breast surgery; actively developing new surgical techniques.</p>
+        </div>
+        <div class="card">
+          <div class="name">Dr. Zi-Hang Wang <span class="badge">Core</span></div>
+          <div class="role">Beijing Chao-Yang Hospital, China</div>
+          <p>Pioneer in single-port endoscopic/robotic reconstruction; editor of key technique textbooks.</p>
+        </div>
+        <div class="card">
+          <div class="name">Dr. Hung-Wen Lai <span class="badge">Core</span></div>
+          <div class="role">Changhua Christian Hospital, Taiwan</div>
+          <p>Leading surgeon in robotic NSM; active in education, clinical research, and collaboration.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 日本語 -->
+    <div data-i18n="ja">
+      <h3>創設アドバイザー</h3>
+      <p>（内容は英語版と同等。後ほど文章を微調整可）</p>
+    </div>
+
+    <!-- 中文 -->
+    <div data-i18n="zh">
+      <h3>创始顾问</h3>
+      <p>（内容与英文一致，稍后可微调为正式中文文案）</p>
+    </div>
+  </div>
+
+  <script>
+    // 仮ログイン：login.html で localStorage.setItem('amibt_auth','ok') 済みかチェック
+    const ok = localStorage.getItem('amibt_auth') === 'ok';
+    if(!ok){ document.getElementById('gate').style.display='block'; }
+
+    // 言語切替
+    const btns=document.querySelectorAll('.lang button');
+    const panes=document.querySelectorAll('[data-i18n]');
+    btns.forEach(b=>b.onclick=()=>{
+      btns.forEach(x=>x.classList.remove('active')); b.classList.add('active');
+      panes.forEach(p=>p.classList.toggle('show', p.dataset.i18n===b.dataset.lang));
+    });
+
+    // ログアウト
+    document.getElementById('logout').onclick=(e)=>{
+      e.preventDefault(); localStorage.removeItem('amibt_auth'); location.href='login.html';
+    };
+  </script>
+</body>
+</html>
