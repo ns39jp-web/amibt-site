@@ -1,46 +1,88 @@
-<header style="text-align:center; margin-top:20px;">
-  <img src="logo.png" alt="A-MIBT logo" width="180">
-</header>
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A-MIBT | Asian Forum for Minimally Invasive Breast Therapies</title>
+  <meta name="description" content="A-MIBT: Asian forum for minimally invasive and non-surgical breast therapies.">
+  <style>
+    :root{--pink:#f28db2;--ink:#222;--muted:#666}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#fafafa}
+    header{background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:10}
+    .nav{max-width:1100px;margin:auto;display:flex;align-items:center;gap:16px;padding:10px 16px}
+    .nav img{height:44px}
+    .nav a{margin-left:auto;color:var(--pink);text-decoration:none;font-weight:700;padding:8px 10px;border:1px solid var(--pink);border-radius:10px}
+    .hero{max-width:1100px;margin:24px auto;padding:18px;display:grid;grid-template-columns:1.2fr 0.8fr;gap:20px}
+    .card{background:#fff;border:1px solid #eee;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.05);padding:20px}
+    h1{margin:0 0 10px;font-size:28px}
+    p{margin:0 0 10px;color:var(--muted)}
+    .btn{display:inline-block;margin-top:8px;background:var(--pink);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    .grid{max-width:1100px;margin:18px auto;padding:0 18px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    h2{margin:0 0 10px}
+    ul{margin:8px 0 0 20px;line-height:1.8}
+    footer{margin:24px 0 40px;text-align:center;color:#999}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <!-- ヘッダー（ロゴ + ログイン） -->
+  <header>
+    <div class="nav">
+      <!-- ロゴはリポジトリ直下にある logo.png を参照。フォルダにある場合はパスを変更 -->
+      <img src="logo.png" alt="A-MIBT logo" onerror="this.style.display='none'">
+      <a href="login.html">Member Login</a>
+    </div>
+  </header>
 
-<!-- 省略：<head> や既存スタイルはあなたの現行 index.html をそのまま使用 -->
-<section id="members">
-  <div class="wrap">
-    <h2>Founding Advisors & Core Members</h2>
+  <!-- ヒーロー -->
+  <section class="hero">
+    <div class="card">
+      <h1>A-MIBT（亚洲乳腺微创治疗研究会）</h1>
+      <p>Endoscopic / robotic / <b>non-surgical ablation</b> を含む、小切開・低侵襲・患者中心の治療をアジアで共有するための共同プラットフォームです。</p>
+      <p>Sharing knowledge and techniques across Asia to advance safer, minimally invasive, and patient-friendly breast therapies.</p>
+      <a class="btn" href="videos.html">🎥 教育動画（会員）</a>
+      <a class="btn" href="members.html" style="background:#fff;color:var(--pink);border:1px solid var(--pink);margin-left:8px">👥 会員ページ</a>
+    </div>
+    <div class="card">
+      <h2>News / Events</h2>
+      <ul>
+        <li>Zoom kick-off meeting 準備中（Advisors & Core Members）</li>
+        <li>アーリーアダプター 20–30施設 募集中（WeChat/ML）</li>
+      </ul>
+      <p style="margin-top:8px;color:#999">英・日・中の本格サイトは順次公開予定です。</p>
+    </div>
+  </section>
 
-    <p style="margin-top:8px;color:#666">
-      ※ 詳細プロフィールは会員専用ページでご覧いただけます。
-    </p>
-
-    <div class="grid cols-2" style="margin-top:12px">
-      <div>
-        <h3 style="margin:.2em 0">Founding Advisors</h3>
-        <ul>
-          <li>Dr. Eisuke Fukuma (Japan)</li>
-          <li>Dr. Takayuki Kinoshita (Japan)</li>
-          <li>Dr. Hyeong Seok Park (Korea)</li>
-          <li>Dr. Shucheng Su (China)</li>
-          <li>Dr. Peng-wei Lyu (China)</li>
-        </ul>
-      </div>
-      <div>
-        <h3 style="margin:.2em 0">Core Members</h3>
-        <ul>
-          <li>Dr. Naomi Sakamoto (Japan)</li>
-          <li>Dr. Zhao Jin (China)</li>
-          <li>Dr. Hui Zhang (China)</li>
-          <li>Dr. Qingmo Yang (China)</li>
-          <li>Dr. Li Sheng-Lin (China)</li>
-          <li>Dr. Zi-Hang Wang (China)</li>
-          <li>Dr. Hung-Wen Lai (Taiwan)</li>
-          <!-- 追加可 -->
-        </ul>
-      </div>
+  <!-- メンバー概要 -->
+  <section class="grid">
+    <div class="card">
+      <h2>Founding Advisors</h2>
+      <ul>
+        <li>Dr. Eisuke Fukuma (Japan)</li>
+        <li>Dr. Takayuki Kinoshita (Japan)</li>
+        <li>Dr. Hyeong Seok Park (Korea)</li>
+        <li>Dr. Shucheng Su (China)</li>
+        <li>Dr. Peng-wei Lyu (China)</li>
+      </ul>
+      <p style="margin-top:6px;color:#999">※ 詳細プロフィールは会員専用ページでご覧いただけます。</p>
     </div>
 
-    <div style="margin-top:14px">
-      <a class="btn primary" href="login.html">ログインして詳細を見る</a>
-      <a class="btn" href="members.html">会員ページへ（ログイン後）</a>
+    <div class="card">
+      <h2>Core Members</h2>
+      <ul>
+        <li>Dr. Naomi Sakamoto (Japan)</li>
+        <li>Dr. Zhao Jin (China)</li>
+        <li>Dr. Hui Zhang (China)</li>
+        <li>Dr. Qingmo Yang (China)</li>
+        <li>Dr. Li Sheng-Lin (China)</li>
+        <li>Dr. Zi-Hang Wang (China)</li>
+        <li>Dr. Hung-Wen Lai (Taiwan)</li>
+      </ul>
+      <a class="btn" href="members.html">ログインして詳細を見る（会員）</a>
     </div>
-  </div>
-</section>
+  </section>
 
+  <footer>© 2025 A-MIBT</footer>
+</body>
+</html>
