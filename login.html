@@ -1,18 +1,31 @@
 <!doctype html>
-<html lang="en">
-<head><meta charset="utf-8"><title>Login</title></head>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A-MIBT | Member Login</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body{font-family:system-ui,-apple-system,Roboto,Arial,sans-serif;background:#fafafa;color:#222;margin:0;}
+    .box{max-width:400px;margin:10vh auto;padding:24px;background:#fff;border:1px solid #eee;border-radius:14px;
+      box-shadow:0 6px 20px rgba(0,0,0,.05);}
+    h1{margin:0 0 8px;}
+    input,button{width:100%;padding:12px;margin:6px 0 12px;border-radius:10px;border:1px solid #ccc;font-size:15px;}
+    button{background:#f28db2;color:#fff;border:none;font-weight:700;cursor:pointer;}
+    .err{color:#b00020;background:#ffeaea;border:1px solid #ffc2cd;padding:8px;border-radius:8px;display:none;}
+  </style>
+</head>
 <body>
-  <form id="f">
-    <input id="e" required placeholder="Email">
-    <input id="p" required placeholder="Password" type="password">
-    <button>Login</button>
-  </form>
+  <div class="box">
+    <h1>Member Login</h1>
+    <p>仮パスワードを入力してください。</p>
+    <div id="err" class="err">パスワードが違います。</div>
+    <input id="pw" type="password" placeholder="Password (仮パス)" autocomplete="current-password">
+    <button id="go">ログイン</button>
+  </div>
+  <script src="auth.js"></script>
   <script>
-    f.onsubmit = e => {
-      e.preventDefault();
-      localStorage.setItem("loggedIn", "yes");
-      location = "videos.html";
-    };
+    document.getElementById("go").onclick = () => tryLogin(document.getElementById("pw").value);
   </script>
 </body>
 </html>
