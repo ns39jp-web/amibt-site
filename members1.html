@@ -1,29 +1,165 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <title>A-MIBT Members Area</title>
-  <script src="auth.js"></script>
-  <script>checkAuth();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A-MIBT Members</title>
+  <meta name="description" content="A-MIBT members-only portal." />
   <style>
-    body{font-family:system-ui;background:#fafafa;color:#222;margin:0;padding:24px;}
-    header{display:flex;justify-content:space-between;align-items:center;background:#fff;padding:10px 24px;
-      box-shadow:0 2px 10px rgba(0,0,0,.05);}
-    a{color:#f28db2;text-decoration:none;margin-left:10px;}
+    :root { --pink:#f28db2; --ink:#222; --muted:#666; --bg:#fafafa; }
+    *{ box-sizing:border-box }
+    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--ink); background:var(--bg) }
+    header{ position:sticky; top:0; z-index:10; background:#fff; border-bottom:1px solid #eee }
+    .nav{ max-width:1100px; margin:auto; display:flex; align-items:center; gap:16px; padding:10px 16px }
+    .nav img{ height:40px }
+    .nav .spacer{ flex:1 }
+    .btn{ display:inline-block; padding:8px 12px; border-radius:10px; text-decoration:none; font-weight:700; cursor:pointer }
+    .btn-outline{ color:var(--pink); border:1px solid var(--pink); }
+    .btn-fill{ background:var(--pink); color:#fff; border:1px solid var(--pink); }
+    main{ max-width:1100px; margin:22px auto; padding:0 16px }
+    .banner{ background:#fff; border:1px solid #eee; border-radius:14px; box-shadow:0 8px 24px rgba(0,0,0,.05); padding:18px; display:grid; grid-template-columns:1fr 1fr; gap:16px }
+    .banner h1{ margin:0 0 6px; font-size:24px }
+    .meta{ color:var(--muted); font-size:14px }
+    .grid{ margin-top:18px; display:grid; grid-template-columns:repeat(3,1fr); gap:16px }
+    .card{ background:#fff; border:1px solid #eee; border-radius:14px; box-shadow:0 8px 24px rgba(0,0,0,.05); padding:18px }
+    .card h3{ margin:0 0 10px }
+    .card p{ margin:0 0 12px; color:var(--muted) }
+    ul{ margin:8px 0 0 18px; line-height:1.8 }
+    footer{ text-align:center; color:#999; margin:28px 0 40px }
+    @media (max-width:1000px){ .grid{ grid-template-columns:1fr 1fr } .banner{ grid-template-columns:1fr } }
+    @media (max-width:620px){ .grid{ grid-template-columns:1fr } }
+    .tag{ display:inline-block; padding:3px 8px; border-radius:999px; background:#ffe5ef; color:#b23c6b; font-size:12px; font-weight:700; }
+    .row{ display:flex; gap:8px; flex-wrap:wrap }
   </style>
 </head>
 <body>
   <header>
-    <h2>Welcome to the A-MIBT Members Area</h2>
-    <a href="#" onclick="logout()">Logout</a>
+    <div class="nav">
+      <img src="logo.png" alt="A-MIBT" onerror="this.style.display='none'">
+      <strong>A-MIBT Members</strong>
+      <div class="spacer"></div>
+      <a class="btn btn-outline" href="index.html">Home</a>
+      <a class="btn btn-fill" href="#" onclick="logout()">Logout</a>
+    </div>
   </header>
-  <main style="max-width:700px;margin:auto;margin-top:40px;">
-    <h3>Exclusive Member Resources</h3>
-    <ul>
-      <li><a href="videos.html">🎥 教育動画ライブラリ</a></li>
-      <li><a href="documents.html">📄 ダウンロード資料</a></li>
-      <li><a href="updates.html">📰 お知らせ・アップデート</a></li>
-    </ul>
+
+  <main>
+    <!-- 上段：挨拶とプロフィール -->
+    <section class="banner">
+      <div>
+        <h1>ようこそ、<span id="who">Member</span> さん</h1>
+        <div class="meta">
+          ログイン中: <span id="email">—</span>
+          <span id="roleWrap" style="display:none"> / 役割: <span id="role">member</span></span>
+        </div>
+        <p style="margin-top:10px">
+          ここから教育動画・資料・イベント情報・メンバー名簿へアクセスできます。<br>
+          （※ 現在はプレ運用。内容は随時更新されます）
+        </p>
+        <div class="row" style="margin-top:10px">
+          <a class="btn btn-fill" href="videos.html">🎥 教育動画</a>
+          <a class="btn btn-outline" href="#directory">👥 メンバー名簿</a>
+          <a class="btn btn-outline" href="#docs">📄 資料ダウンロード</a>
+          <a class="btn btn-outline" href="#events">🗓 イベント</a>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <h3>クイックリンク</h3>
+          <ul>
+            <li><a href="videos.html">教育動画（Vimeo/YouTube/Bilibili 切替）</a></li>
+            <li><a href="https://forms.gle/" target="_blank" rel="noopener">症例共有フォーム（準備中）</a></li>
+            <li><a href="mailto:info@amibt.jp">お問い合わせ：info@amibt.jp</a></li>
+          </ul>
+          <p style="margin-top:10px"><span class="tag">Beta</span> 承認制ログイン（Firebase）に順次切替予定</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 中段：カード群 -->
+    <section class="grid">
+      <div class="card" id="docs">
+        <h3>📄 ダウンロード資料</h3>
+        <p>テンプレート、スライド、ロゴ、倫理規定など。</p>
+        <ul>
+          <li><a href="#">A-MIBT スライドテーマ（準備中）</a></li>
+          <li><a href="#">ロゴ一式（SVG/PNG）</a></li>
+          <li><a href="#">投稿・発表ガイドライン（準備中）</a></li>
+        </ul>
+      </div>
+
+      <div class="card" id="events">
+        <h3>🗓 イベント / Zoom</h3>
+        <p>オンライン・シンポジウム、アドバイザーミーティングの予定。</p>
+        <ul>
+          <li>Kick-off（Advisors & Core）— 日程調整中</li>
+          <li>3か月ごとのWebinar — 症例共有 + Q&A</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🎯 研究・共同プロジェクト</h3>
+        <p>マルチセンター研究、データ登録、標準化の取り組み。</p>
+        <ul>
+          <li>Endoscopic / Robotic / Ablation の共同レジストリ（準備中）</li>
+          <li>TAD, LD flap 等の手技標準化タスクフォース</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 下段：メンバー名簿（要点のみ／詳細は別ページに） -->
+    <section id="directory" class="card" style="margin-top:18px">
+      <h3>👥 Founding Advisors & Core Members（概要）</h3>
+      <div class="row" style="margin:6px 0 10px">
+        <span class="tag">Advisors</span><span class="tag">Core</span><span class="tag">Early Adopter (Soon)</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div>
+          <strong>Founding Advisors</strong>
+          <ul>
+            <li>Dr. Eisuke Fukuma (Japan)</li>
+            <li>Dr. Takayuki Kinoshita (Japan)</li>
+            <li>Dr. Hyeong Seok Park (Korea)</li>
+            <li>Dr. Shucheng Su (China)</li>
+            <li>Dr. Peng-wei Lyu (China)</li>
+          </ul>
+        </div>
+        <div>
+          <strong>Core Members</strong>
+          <ul>
+            <li>Dr. Naomi Sakamoto (Japan)</li>
+            <li>Dr. Zhao Jin (China)</li>
+            <li>Dr. Hui Zhang (China)</li>
+            <li>Dr. Qingmo Yang (China)</li>
+            <li>Dr. Li Sheng-Lin (China)</li>
+            <li>Dr. Zi-Hang Wang (China)</li>
+            <li>Dr. Hung-Wen Lai (Taiwan)</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:10px;color:#777">詳細プロフィールは順次公開予定です（別ページ/承認制）。</p>
+    </section>
+
+    <footer>© 2025 A-MIBT</footer>
   </main>
+
+  <!-- 認証：仮パス版/ Firebase版どちらでもOK -->
+  <script src="firebase-config.js"></script><!-- Firebase未使用なら存在しなくても可 -->
+  <script src="auth.js"></script>
+  <script>
+    // ログイン保護（仮パスでもFirebaseでも動く簡易ゲート）
+    if (typeof checkAuth === 'function') { checkAuth(); }
+    // 表示名・メール・役割の表示（入っていれば使う）
+    const email = localStorage.getItem('amibt_user') || '';
+    const role  = localStorage.getItem('amibt_role') || ''; // ある場合のみ表示
+    if (email) document.getElementById('email').textContent = email;
+    if (role) { 
+      document.getElementById('role').textContent = role;
+      document.getElementById('roleWrap').style.display = 'inline';
+      document.getElementById('who').textContent = role.charAt(0).toUpperCase()+role.slice(1);
+    } else {
+      document.getElementById('who').textContent = 'Member';
+    }
+  </script>
 </body>
 </html>
